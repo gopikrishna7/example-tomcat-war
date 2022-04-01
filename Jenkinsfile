@@ -5,7 +5,7 @@ pipeline{
         
     }
     parameters{
-        string(name:'VERSION',defaultValue:'',description: 'version to deploy on prod')
+        string(name:'VERSION',defaultValue:'0.1',description: 'version to deploy on prod')
         choice(name:'VERSION',choices: ['1.1.0','1.1.1','1.1.2'],description: 'select one')
         booleanParam(name:'executeTests',defaultValue: true, description:'test will skip')
     }
