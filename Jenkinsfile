@@ -6,8 +6,8 @@ pipeline{
     }
     parameters{
         
-        choice(name:'VERSION',choices: ['1.1.0','1.1.1','1.1.2'],description: '')
-        booleanParam(name:'executeTests',defaultValue: true, description:'')
+        choice(name:'VERSION',choices: ['1.1.0','1.1.1','1.1.2'],description: 'select one')
+        booleanParam(name:'executeTests',defaultValue: true, description:'test will skip')
     }
     stages{
         stage ('checkout'){
