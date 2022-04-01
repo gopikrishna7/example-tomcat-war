@@ -1,9 +1,9 @@
 pipeline{
     agent any
     parameters{
-        booleanParam(name:'execute_checkout',defaultValue: true ,descripttion:'')
-        booleanParam(name:'execute_build',defaultValue: true ,descripttion:'')
-        booleanParam(name:'execute_builddocker',defaultValue: true ,descripttion:'')
+        booleanParam(name:'execute_checkout',defaultValue: true ,description:'')
+        booleanParam(name:'execute_build',defaultValue: true ,description:'')
+        booleanParam(name:'execute_builddocker',defaultValue: true ,description:'')
     }
     
     stages{
