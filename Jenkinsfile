@@ -15,7 +15,7 @@ pipeline{
     }
     stage ('build docker image'){
         steps{
-            bat "docker build -t gopikrishna99899/example-tomcat-war:${env.BUILD_NUMBER}"
+            bat "docker build -t gopikrishna99899/example-tomcat-war:${env.BUILD_NUMBER} ."
         }
     }
     }
