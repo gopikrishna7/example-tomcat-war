@@ -15,16 +15,7 @@ pipeline{
                 
             }
         }
-        stage('build'){
-            steps{
-                withCredentials([
-                    usernamePassword(credentials:'server-credentials', usernamevariable: USER, passwordVariable: PWD)
-                    ]){
-                        echo '$USER,$PWD'
-                    }
-            }
-        }
-        
+
     
     }
 }
