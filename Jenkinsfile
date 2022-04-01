@@ -7,7 +7,7 @@ pipeline{
     stages{
         stage ('checkout'){
             steps{
-                git branch: 'master', url: 'https://github.com/gopikrishna7/example-tomcat-war.git'
+                
                 echo "check out stage completed for ${Version} email:${GIT_AUTHOR_EMAIL}"
                 echo "${SERVER_CRED}"
                 
