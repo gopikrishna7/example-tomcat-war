@@ -9,7 +9,7 @@ pipeline{
             steps{
                 
                 echo "check out stage completed for ${Version}"
-                echo "${SERVER_CRED}"
+                echo '$SERVER_CRED'
                 
                 
                 
@@ -20,7 +20,7 @@ pipeline{
                 withCredentials([
                     usernamePassword(credentials:'server-credentials', usernamevariable: USER, passwordVariable: PWD)
                     ]){
-                        echo "${USER},${PWD}"
+                        echo '$USER,$PWD'
                     }
             }
         }
