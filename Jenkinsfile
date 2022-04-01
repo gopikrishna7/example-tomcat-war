@@ -8,7 +8,7 @@ pipeline{
         stage ('checkout'){
             steps{
                 
-                echo "check out stage completed for ${Version} email:${GIT_AUTHOR_EMAIL}"
+                echo "check out stage completed for ${Version}"
                 echo "${SERVER_CRED}"
                 
                 
