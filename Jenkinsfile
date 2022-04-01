@@ -36,6 +36,12 @@ pipeline{
 
 
         }
+        stage('deploy as dockercontainer in docker server'){
+            sshagent(['dockerserver']) {
+                bat "ssh -o StrictHostKeyCheking=no ubuntu@ec2-13-127-110-243.ap-south-1.compute.amazonaws.com docker run -d -p 8080:8080 --name wa gopikrishna99899/example-tomcat-war:${env.BUILD_NUMBER}"
+            
+            }
+        }
     }
     
 }
