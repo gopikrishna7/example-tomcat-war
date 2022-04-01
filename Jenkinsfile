@@ -11,7 +11,7 @@ pipeline{
         steps{
             echo "build starting"
             withMaven(){
-                sh "mvn clean package"
+                bat "mvn clean package"
         }
     }
     }
