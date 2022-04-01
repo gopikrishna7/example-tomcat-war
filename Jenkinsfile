@@ -20,6 +20,8 @@ pipeline{
                 usernamePassword(credentials:'server-credentials', usernamevariable: USER, passwordVariable: PWD)
             ]){
                     echo "${USER},${PWD}"
+            }
+        }
         
     
     }
