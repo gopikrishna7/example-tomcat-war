@@ -1,5 +1,8 @@
 pipeline{
     agent any
+    tools{
+        maven "maven"
+    }
     parameters{
         booleanParam(name:'execute_checkout',defaultValue: true ,description:'')
         booleanParam(name:'execute_build',defaultValue: true ,description:'')
