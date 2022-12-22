@@ -1,2 +1,7 @@
-FROM tomcat:8.0.20-jre8
-COPY target/SimpleTomcatWebApp.war /usr/local/tomcat/webapps/
+FROM maven as build
+ADD ./pom.xml pom.xml
+ADD ./src src/
+RUN mvn clean package
+
+FROM tomcat
+COPY --from=build target/*.war /usr/local/tomcat/webapps/
