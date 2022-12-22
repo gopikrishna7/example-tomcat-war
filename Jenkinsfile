@@ -18,7 +18,7 @@ pipeline{
 
         stage ('build docker image'){
             steps{
-                bat "docker build -t gopikrishna99899/example-tomcat-war:998994 ."
+                sh "docker build -t gopikrishna99899/example-tomcat-war:998994 ."
             }
         }
         stage('docker login and push'){
@@ -26,8 +26,8 @@ pipeline{
                 SERVER_CRED=credentials('dockerhub')
             }
             steps{
-                bat "docker login -u gopikrishna99899 -p ${SERVER_CRED_PSW}"
-                bat "docker push gopikrishna99899/example-tomcat-war:998994"
+                sh "docker login -u gopikrishna99899 -p ${SERVER_CRED_PSW}"
+                sh "docker push gopikrishna99899/example-tomcat-war:998994"
             }
 
 
