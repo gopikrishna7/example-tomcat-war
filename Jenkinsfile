@@ -15,14 +15,10 @@ pipeline{
                 echo "check out stage completed"
             }
         }
-        stage ('build'){
-            steps{
-                bat "mvn clean package"
-            }
-        }
+
         stage ('build docker image'){
             steps{
-                bat "docker build -t gopikrishna99899/example-tomcat-war:${env.BUILD_NUMBER} ."
+                bat "docker build -t gopikrishna99899/example-tomcat-war:998994 ."
             }
         }
         stage('docker login and push'){
@@ -31,22 +27,12 @@ pipeline{
             }
             steps{
                 bat "docker login -u gopikrishna99899 -p ${SERVER_CRED_PSW}"
-                bat "docker push gopikrishna99899/example-tomcat-war:${env.BUILD_NUMBER}"
+                bat "docker push gopikrishna99899/example-tomcat-war:998994"
             }
 
 
         }
-        stage('deploy as dockercontainer in docker server'){
-            steps{
-                script{
-                
-                    sshagent(['dockerserver']) {
-                        bat "ssh -o StrictHostKeyCheking=no ubuntu@ec2-13-127-110-243.ap-south-1.compute.amazonaws.com docker run -d -p 8080:8080 --name wa gopikrishna99899/example-tomcat-war:${env.BUILD_NUMBER}"
-                    }
-                }
-            
-            }
-        }
+        
     }
     
 }
