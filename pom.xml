@@ -8,8 +8,7 @@
   <name>SimpleTomcatWebApp Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <properties>
-		<sonar.host.url>http://localhost:9000/</sonar.host.url>
-		<sonar.login>9d5e8ecb57e243909ba2522b98e96e7f66fa4679</sonar.login>
+		
 
 	</properties>
 
