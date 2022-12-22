@@ -15,23 +15,15 @@ pipeline{
                 echo "check out stage completed"
             }
         }
-
-        stage ('build docker image'){
+        stage('scan'){
             steps{
-                sh "docker build -t gopikrishna99899/example-tomcat-war:998994 ."
+                withSonarQubeEnv(installationName: 'sq1'){
+                    sh './mvnw clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
             }
         }
-        stage('docker login and push'){
-            environment{
-                SERVER_CRED=credentials('dockerhub')
-            }
-            steps{
-                sh "docker login -u gopikrishna99899 -p ${SERVER_CRED_PSW}"
-                sh "docker push gopikrishna99899/example-tomcat-war:998994"
-            }
 
-
-        }
+        
+        
         
     }
     
