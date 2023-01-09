@@ -25,6 +25,12 @@ pipeline{
                 }
             }
         }
+        
+        stage('qg'){
+            steps{
+                waitForQualityGate abortPipeline: true
+            }
+        }
 
         
         
